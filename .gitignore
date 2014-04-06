@@ -9,3 +9,6 @@ cabal-dev
 .cabal-sandbox/
 cabal.sandbox.config
 cabal.config
+_site/
+_cache/
+dist/
