@@ -14,3 +14,8 @@ My [gnupg](http://www.gnupg.org/) public key is [here](/var/sio.asc).
  
 Add me on [Diaspora*](https://diasporafoundation.org/) - 
 fractalcat@churchofthewired.org.
+
+Miscellaneous
+-------------
+
+I follow [Crocker's Rules](http://www.sl4.org/crocker.html).
