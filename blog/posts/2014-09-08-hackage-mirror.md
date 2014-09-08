@@ -10,9 +10,9 @@ You will need:
  - around 100GB diskspace;
  - at least 4GB memory (you might be able to get away with less, but I
    wouldn't bet on it);
- - CPU time to burn (the initial sync from `hackage.haskell.org` took
-   north of seven days on four physical cores, and the associated build
-   was around the same amount of compute time); and
+ - CPU time to burn (the initial sync from `hackage.haskell.org` took me
+   north of seven days on four physical cores, and the associated
+   documentation build was around the same amount of compute time); and
  - GHC 7.6.x (no, GHC 7.8.x [will not suffice](https://github.com/haskell/hackage-server/issues/260)).
 
 For reference, the machine I used was a 4-vCPU machine with 8GB RAM
