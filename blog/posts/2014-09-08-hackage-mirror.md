@@ -99,7 +99,7 @@ nginx configuration file might look like this:
 ```
 server {
     listen 80 default_server;
-    server_name hackage.syd1.anchor.net.au;
+    server_name hackage.yourserver.net;
     location / {
         proxy_pass http://127.0.0.1:8080$uri;
     }
