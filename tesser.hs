@@ -30,7 +30,7 @@ main = hakyllWith cfg $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/doc.html" postCtx
+            >>= loadAndApplyTemplate "templates/main.html" postCtx
             >>= relativizeUrls
 
     create ["doc/archive.html"] $ do
@@ -59,7 +59,7 @@ main = hakyllWith cfg $ do
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/doc.html" indexCtx
+                >>= loadAndApplyTemplate "templates/main.html" indexCtx
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
