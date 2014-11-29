@@ -2,19 +2,17 @@
 title: Home
 ---
 
-tesser.org is the personal homepage of `Sharif Olorin`, also known as
-`fractalcat` and `sio`.
+# tesser.org - Sharif Olorin
 
-Contact
--------
+## Contact
 
+ - I am variously known as `Sharif Olorin`, `fractalcat`, and `sio`.
  - Mail me at [sio@tesser.org](mailto:sio@tesser.org).
    - I use [gnupg](http://www.gnupg.org/); feel free to send me mail
      encrypted with key ID [0x6B9FDF57](/var/sio.asc).
  - I often lurk on the [alpha-labs.net](https://alpha-labs.net) XMPP
    server as `sio`.
 
-Miscellaneous
--------------
+## Miscellaneous
 
 I follow [Crocker's Rules](http://www.sl4.org/crocker.html).

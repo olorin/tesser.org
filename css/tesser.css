@@ -4,14 +4,8 @@ div#header {
     padding: 12px 0px 12px 0px;
 }
 
-div#logo a {
-    color: black;
-    float: left;
-    font-weight: bold;
-}
-
 div#header #navigation {
-    text-align: right;
+    text-align: left;
 }
 
 div#header #navigation a {
