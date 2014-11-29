@@ -11,7 +11,7 @@ main = hakyllWith cfg $ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
-	
+
     match "var/*" $ do
         route idRoute
         compile copyFileCompiler
@@ -26,14 +26,14 @@ main = hakyllWith cfg $ do
             >>= loadAndApplyTemplate "templates/main.html" defaultContext
             >>= relativizeUrls
 
-    match "blog/posts/*" $ do
+    match "doc/posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
-            >>= loadAndApplyTemplate "templates/blog.html" postCtx
+            >>= loadAndApplyTemplate "templates/doc.html" postCtx
             >>= relativizeUrls
 
-    create ["blog/archive.html"] $ do
+    create ["doc/archive.html"] $ do
         route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "posts/*"
@@ -44,26 +44,26 @@ main = hakyllWith cfg $ do
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/blog.html" archiveCtx
+                >>= loadAndApplyTemplate "templates/doc.html" archiveCtx
                 >>= relativizeUrls
 
 
-    create ["blog/index.html"] $ do
+    create ["doc/index.html"] $ do
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll "blog/posts/*"
+            posts <- recentFirst =<< loadAll "doc/posts/*"
             let indexCtx =
                     listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Blog"                `mappend`
+                    constField "title" "Documents"           `mappend`
                     defaultContext
 
             getResourceBody
                 >>= applyAsTemplate indexCtx
-                >>= loadAndApplyTemplate "templates/blog.html" indexCtx
+                >>= loadAndApplyTemplate "templates/doc.html" indexCtx
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
-    where 
+    where
         cfg = defaultConfiguration {
             deployCommand = "rsync -avz ./_site/ tesser@tesser.wired:~/tesser.org"
         }
