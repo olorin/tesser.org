@@ -28,13 +28,13 @@ had CPU to burn.
 
 Install some dependencies:
 
-```
+```bash
 sudo apt-get install zlib1g-dev libicu-dev happy alex git ghc cabal-install nginx haddock
 ```
 
 Create a user to run the server:
 
-```
+```bash
 sudo useradd -m -s /bin/bash hackage
 sudo su - hackage
 ```
@@ -42,7 +42,7 @@ sudo su - hackage
 Get the source and build (I used the latest `master`, at the time
 `489df240266f2b3066cf6e99304e704c53c8e04f`):
 
-```
+```bash
 git clone https://github.com/haskell/hackage-server
 cd hackage-server
 cabal update
@@ -51,7 +51,7 @@ cabal install
 
 Add `cabal`'s bindir to your `$PATH` and update:
 
-```
+```bash
 echo 'export PATH=$HOME/.cabal/bin:$PATH' >> ~/.bashrc
 . ~/.bashrc
 set +h
@@ -59,7 +59,7 @@ set +h
 
 Set up some data directories:
 
-```
+```bash
 export HACKAGE_STATE=$HOME/state
 export HACKAGE_TMP="${HACKAGE_STATE}/tmp"
 mkdir -p $HACKAGE_TMP
@@ -70,13 +70,13 @@ mkdir -p $HACKAGE_TMP
 Work out the URL you want to host your mirror at (the base URI - we'll
 set up nginx to listen here).
 
-```
+```bash
 export HACKAGE_URL="http://hackage.yourserver.net"
 ```
 
 Initialize and run the server:
 
-```
+```bash
 hackage-server init --state-dir=$HACKAGE_STATE --admin=$USERNAME:$PASSWORD
 hackage-server run --ip=127.0.0.1 --base-uri=$HACKAGE_URL --state-dir=$HACKAGE_STATE --tmp-dir=$HACKAGE_TMP
 ```
@@ -88,7 +88,7 @@ a process manager (I used [daemontools](http://cr.yp.to/daemontools.html)).
 Now, this will only use a single core; if you have more than one, you
 probably want to use them:
 
-```
+```bash
 hackage-server +RTS -N$NUM_CORES -RTS run --ip=127.0.0.1 --base-uri=$HACKAGE_URL --state-dir=$HACKAGE_STATE --tmp-dir=$HACKAGE_TMP
 ```
 
@@ -96,7 +96,7 @@ For public access, I put `hackage-server` behind [nginx](http://nginx.org/); thi
 strictly necessary, but it's nice for logging and caching purposes. A sample
 nginx configuration file might look like this:
 
-```
+```bash
 server {
     listen 80 default_server;
     server_name hackage.yourserver.net;
@@ -114,7 +114,7 @@ Using the admin interface (http://localhost:8080/admin), create a
 We need to specify where we want to mirror from; assuming the official
 Hackage at `hackage.haskell.org`, it looks like this:
 
-```
+```bash
 echo -e "http://hackage.haskell.org\nhttp://mirror:$MIRROR_PASSWORD@localhost:8080/" > servers.cfg
 ```
 
@@ -122,7 +122,7 @@ That's all we need there (`hackage-mirror` is an HTTP client which talks
 to the upstream and downstream Hackage servers; it doesn't need to
 access state directly). Now run it:
 
-```
+```bash
 hackage-mirror $HOME/servers.cfg --continuous --keep-going
 ```
 
@@ -137,14 +137,14 @@ The 'admin' user type doesn't have upload privileges, so use the
 server's admin interface to create a `build` user in the `trustees`
 group. Now we can initialize the build client configuration:
 
-```
+```bash
 hackage-build init http://localhost:8080/
 ```
 
 Enter the username and password of the `build` user when prompted. Now
 you can run the build client itself:
 
-```
+```bash
 hackage-build build --continuous --keep-going
 ```
 
