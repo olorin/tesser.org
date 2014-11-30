@@ -1,10 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
-import Data.Monoid (mappend)
-import Data.Maybe
-import Hakyll
-import System.Environment
-import Control.Exception
-import Control.Monad.IO.Class (MonadIO, liftIO)
+
+import           Control.Exception
+import           Control.Monad.IO.Class (MonadIO, liftIO)
+import           Data.Maybe
+import           Data.Monoid            (mappend)
+import           Hakyll
+import           System.Environment
 
 main :: IO ()
 main = hakyllWith cfg $ do
@@ -48,12 +49,11 @@ main = hakyllWith cfg $ do
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateCompiler
-    where
-        cfg = defaultConfiguration {
-            deployCommand = "rsync -avz ./_site/ tesser@tesser.wired:~/tesser.org"
-        }
+  where
+    cfg = defaultConfiguration {
+        deployCommand = "rsync -avz ./_site/ tesser@tesser.wired:~/tesser.org"
+    }
 
---------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" `mappend`
