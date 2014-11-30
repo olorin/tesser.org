@@ -16,7 +16,7 @@ taking backups of these things, but during a less-organized period of my
 life the chances of tracking down a copy of that MRI in time for it to
 be clinically relevant would have been negligible.
 
-Maintaing an accurate and complete history of medical imaging is
+Maintaining an accurate and complete history of medical imaging is
 often critical for a doctor to make good treatment decisions with
 historical context. Generally (at least in Australia, other countries
 may have it better), these records are kept distributed on the
@@ -24,14 +24,14 @@ fileservers of individual hospitals and private radiology clinics. These
 entities are normally pretty good at not losing these records, but
 unless you are much more organized than I it's probably a challenge to
 keep track of what imaging you've had, where you
-had it, and how to access the datai. The same issue pops up if you move countries, your
+had it, and how to access the data. The same issue pops up if you move countries, your
 radiology clinic goes out of business, et cetera. Bytes can last a lot longer than
 governments if you treat them right.
 
 ## Imaging formats
 
 From the inception of any new technology until a critical mass of
-entitites realize it's a good idea, there will be as many different
+entities realize it's a good idea, there will be as many different
 imaging formats as their are equipment manufacturers or software
 companies. Fortunately, medical imaging is pretty important and has been
 around for a while. The stone age lasted from whenever someone first
@@ -62,7 +62,7 @@ If you store an image of each CD, you can
 always write one out to whatever storage medium is in common use at the
 time and take it along to the hospital. This might be the best option
 for people who don't need to get a lot of imaging done (that is,
-healthy, not accident-prone, and not involved in risky recreational activites).
+healthy, not accident-prone, and not involved in risky recreational activities).
 
 ### DICOM server
 
