@@ -15,7 +15,7 @@ had it, and how to access the datai. The same issue pops up if you move countrie
 radiology clinic goes out of business, et cetera. Bits can last a lot longer than
 governments if you treat them right.
 
-# Imaging formats
+## Imaging formats
 
 From the inception of any new technology until a critical mass of
 entitites realise it's a good idea, there will be as many different
@@ -34,16 +34,16 @@ will almost certainly be in DICOM format. As with every other useful
 open format, a solid ecosystem of free and open-source tools have sprung
 up to work with DICOM data.
 
-# Storage options
+## Storage options
 
-## Physical films
+### Physical films
 
 This is the simplest option, but it has numerous disadvantages; films
 degrade, get lost or misfiled, you have another pile of physical stuff
 you need to take with you every time you relocate, and films can never
 store the same imaging resolution as the original DICOM files can.
 
-## Disk images
+### Disk images
 
 If you store an image of each CD, you can
 always write one out to whatever storage medium is in common use at the
@@ -51,7 +51,7 @@ time and take it along to the hospital. This might be the best option
 for people who don't need to get a lot of imaging done (that is, healthy
 and not accident-prone or involved in risky recreational activites).
 
-## DICOM server
+### DICOM server
 
 This is the same kind of application your radiology clinic will be
 using to store your images. If you're running your own, you
@@ -73,7 +73,7 @@ reasons you might decide it's worthwhile:
    is even possible);
  - You're a medical imaging nerd (hi!)
 
-# Implementation
+## Implementation
 
 I decided to go with [Orthanc](http://www.orthanc-server.com/index.php)
 as it seems like the most mature of the available open-source options.

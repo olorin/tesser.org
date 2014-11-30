@@ -30,7 +30,7 @@ main = hakyllWith cfg $ do
     match "doc/posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html"    postCtx
+            >>= loadAndApplyTemplate "templates/post.html" postCtx
             >>= loadAndApplyTemplate "templates/main.html" postCtx
             >>= relativizeUrls
 

@@ -3,7 +3,7 @@ title: Notes on setting up a Hackage mirror
 author: Sharif Olorin
 ---
 
-# Preparation
+## Preparation
 
 You will need:
 
@@ -22,9 +22,9 @@ one is willing to wait a little longer for the initial sync). I used a
 single-purpose machine; it could be done on a multi-purpose server if it
 had CPU to burn.
 
-# Process
+## Process
 
-## Environment
+### Environment
 
 Install some dependencies:
 
@@ -65,7 +65,7 @@ export HACKAGE_TMP="${HACKAGE_STATE}/tmp"
 mkdir -p $HACKAGE_TMP
 ```
 
-## Running the server
+### Running the server
 
 Work out the URL you want to host your mirror at (the base URI - we'll
 set up nginx to listen here).
@@ -106,7 +106,7 @@ server {
 }
 ```
 
-## Running the mirror
+### Running the mirror
 
 Using the admin interface (http://localhost:8080/admin), create a
 `mirror` user and add them to the `mirrors` group.
@@ -129,7 +129,7 @@ hackage-mirror $HOME/servers.cfg --continuous --keep-going
 This will take a while (read: days), so leave it running headless (as
 with the server, you probably want to use a process manager for this).
 
-## Running the build client
+### Running the build client
 
 You now have packages, but no documentation; we'll build that now.
 
