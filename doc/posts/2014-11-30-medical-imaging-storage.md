@@ -31,10 +31,8 @@ imaging (with the exception of certain time series datatypes such as
 [EDF](http://en.wikipedia.org/wiki/European_Data_Format) and its
 successors). So when you go to a clinic and leave with a CD, the data on it
 will almost certainly be in DICOM format. As with every other useful
-open format, free and open-source tools have sprung up to work with
-DICOM data (the ones I've found most useful are
-[DCMTK](http://dicom.offis.de/dcmtk.php.en) and
-[Orthanc](http://www.orthanc-server.com/)).
+open format, a solid ecosystem of free and open-source tools have sprung
+up to work with DICOM data.
 
 # Storage options
 
@@ -74,3 +72,12 @@ reasons you might decide it's worthwhile:
    it from another country's healthcare system (in the cases where this
    is even possible);
  - You're a medical imaging nerd (hi!)
+
+# Implementation
+
+I decided to go with [Orthanc](http://www.orthanc-server.com/index.php)
+as it seems like the most mature of the available open-source options.
+It provides both a DICOM and an HTTP server, including a REST API (this to my
+enormous relief; I was worried I'd be stuck with SOAP or something, but
+it seems that the medical imaging industry moves faster than, say,
+payment processing).
