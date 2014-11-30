@@ -12,7 +12,7 @@ entities are normally pretty good at not losing these records, but
 unless you are much more organised than I it's probably a challenge to
 keep track of what imaging you've had, where you
 had it, and how to access the datai. The same issue pops up if you move countries, your
-radiology clinic goes out of business, et cetera. Bits can last a lot longer than
+radiology clinic goes out of business, et cetera. Bytes can last a lot longer than
 governments if you treat them right.
 
 ## Imaging formats
