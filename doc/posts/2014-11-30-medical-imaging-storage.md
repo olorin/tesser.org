@@ -3,13 +3,26 @@ title: Store and index your own medical imaging data
 author: Sharif Olorin
 ---
 
+I broke my wrist (right distal radius) a couple of weeks ago. My doctor initially
+missed it on the X-ray and said it looked like a scaphoid fracture, and
+the registrar at the emergency department concurred.
+The orthopaedics department disagreed and pointed out the (quite subtle)
+radial fracture, but agreed that my scaphoid looked "weird" (their
+words), so they got me in for an MRI and asked if I'd had any previous
+imaging done of that wrist. I happened to have data from an MRI of that wrist from a year earlier on
+my backup server, and this got me thinking about storage and
+retrieval of these records in general. I finally got smart and started
+taking backups of these things, but during a less-organized period of my
+life the chances of tracking down a copy of that MRI in time for it to
+be clinically relevant would have been negligible.
+
 Maintaing an accurate and complete history of medical imaging is
 often critical for a doctor to make good treatment decisions with
 historical context. Generally (at least in Australia, other countries
 may have it better), these records are kept distributed on the
 fileservers of individual hospitals and private radiology clinics. These
 entities are normally pretty good at not losing these records, but
-unless you are much more organised than I it's probably a challenge to
+unless you are much more organized than I it's probably a challenge to
 keep track of what imaging you've had, where you
 had it, and how to access the datai. The same issue pops up if you move countries, your
 radiology clinic goes out of business, et cetera. Bytes can last a lot longer than
@@ -18,11 +31,11 @@ governments if you treat them right.
 ## Imaging formats
 
 From the inception of any new technology until a critical mass of
-entitites realise it's a good idea, there will be as many different
+entitites realize it's a good idea, there will be as many different
 imaging formats as their are equipment manufacturers or software
 companies. Fortunately, medical imaging is pretty important and has been
 around for a while. The stone age lasted from whenever someone first
-thought of hooking an x-ray machine up to a computer up until the early
+thought of hooking an X-ray machine up to a computer up until the early
 1990s, when [DICOM](http://en.wikipedia.org/wiki/DICOM) became an [ISO
 standard](http://www.iso.org/iso/catalogue_detail?csnumber=43218) and attained almost
 universal adoption for storage and transmission of most types of medical
@@ -48,8 +61,8 @@ store the same imaging resolution as the original DICOM files can.
 If you store an image of each CD, you can
 always write one out to whatever storage medium is in common use at the
 time and take it along to the hospital. This might be the best option
-for people who don't need to get a lot of imaging done (that is, healthy
-and not accident-prone or involved in risky recreational activites).
+for people who don't need to get a lot of imaging done (that is,
+healthy, not accident-prone, and not involved in risky recreational activites).
 
 ### DICOM server
 
@@ -71,13 +84,16 @@ reasons you might decide it's worthwhile:
    access your medical imaging data without the delays and red tape involved in requesting
    it from another country's healthcare system (in the cases where this
    is even possible);
- - You're a medical imaging nerd (hi!)
+ - You're a medical imaging nerd (hi!).
 
 ## Implementation
 
 I decided to go with [Orthanc](http://www.orthanc-server.com/index.php)
 as it seems like the most mature of the available open-source options.
-It provides both a DICOM and an HTTP server, including a REST API (this to my
+The documentation is excellent and it took me less than an hour
+to get it running on a Linux server (it also supports Mac OS and
+Windows).
+It provides both a DICOM and an HTTP server, including a JSON REST API (this to my
 enormous relief; I was worried I'd be stuck with SOAP or something, but
 it seems that the medical imaging industry moves faster than, say,
 payment processing).
