@@ -44,7 +44,7 @@ imaging (with the exception of certain time series datatypes such as
 [EDF](http://en.wikipedia.org/wiki/European_Data_Format) and its
 successors). So when you go to a clinic and leave with a CD, the data on it
 will almost certainly be in DICOM format. As with every other useful
-open format, a solid ecosystem of free and open-source tools have sprung
+open format, a solid ecosystem of free and open-source tools has sprung
 up to work with DICOM data.
 
 ## Storage options
