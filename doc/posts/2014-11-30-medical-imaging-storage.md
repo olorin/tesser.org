@@ -8,12 +8,12 @@ missed it on the X-ray and said it looked like a scaphoid fracture, and
 the registrar at the emergency department concurred.
 The orthopaedics department disagreed and pointed out the (quite subtle)
 radial fracture, but agreed that my scaphoid looked "weird" (their
-words), so they got me in for an MRI and asked if I'd had any previous
-imaging done of that wrist. I happened to have data from an MRI of that wrist from a year earlier on
-my backup server, and this got me thinking about storage and
+words), so they got me in for an MRI scan and asked if I'd had any previous
+imaging done of that wrist. I happened to have data from a year-old MRI scan of 
+that wrist on my backup server, and this got me thinking about storage and
 retrieval of these records in general. I finally got smart and started
-taking backups of these things, but during a less-organized period of my
-life the chances of tracking down a copy of that MRI in time for it to
+taking backups of the things, but during a less-organized period of my
+life the chances of tracking down a copy of that MRI data in time for it to
 be clinically relevant would have been negligible.
 
 Maintaining an accurate and complete history of medical imaging is
@@ -91,7 +91,7 @@ reasons you might decide it's worthwhile:
 I decided to go with [Orthanc](http://www.orthanc-server.com/index.php)
 as it seems like the most mature of the available open-source options.
 The documentation is excellent and it took me less than an hour
-to get it running on a Linux server (it also supports Mac OS and
+to get it running on a Linux machine (it also supports Mac OS and
 Windows).
 It provides both a DICOM and an HTTP server, including a JSON REST API (this to my
 enormous relief; I was worried I'd be stuck with SOAP or something, but
