@@ -20,7 +20,7 @@ div#header #navigation a {
 div#footer {
     border-top: solid 2px black;
     color: #555;
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 30px;
     padding: 12px 0px 12px 0px;
     text-align: right;
@@ -28,6 +28,6 @@ div#footer {
 
 div.info {
     color: #555;
-    font-size: 14px;
+    font-size: 16px;
     font-style: italic;
 }
