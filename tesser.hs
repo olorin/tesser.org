@@ -1,11 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import           Control.Exception
-import           Control.Monad.IO.Class (MonadIO, liftIO)
-import           Data.Maybe
-import           Data.Monoid            (mappend)
+import           Data.Monoid
 import           Hakyll
-import           System.Environment
 
 main :: IO ()
 main = hakyllWith cfg $ do
@@ -39,8 +35,8 @@ main = hakyllWith cfg $ do
         compile $ do
             posts <- recentFirst =<< loadAll "doc/posts/*"
             let indexCtx =
-                    listField "posts" postCtx (return posts) `mappend`
-                    constField "title" "Documents"           `mappend`
+                    listField "posts" postCtx (return posts) <>
+                    constField "title" "Documents"           <>
                     defaultContext
 
             getResourceBody
@@ -56,5 +52,5 @@ main = hakyllWith cfg $ do
 
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
+    dateField "date" "%B %e, %Y" <>
     defaultContext
