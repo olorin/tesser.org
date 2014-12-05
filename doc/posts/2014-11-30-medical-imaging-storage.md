@@ -31,8 +31,8 @@ governments if you treat them right.
 ## Imaging formats
 
 From the inception of any new technology until a critical mass of
-entities realize it's a good idea, there will be as many different
-imaging formats as their are equipment manufacturers or software
+entities realize it's a good idea, there will be as many competing file
+formats as there are equipment manufacturers or software
 companies. Fortunately, medical imaging is pretty important and has been
 around for a while. The stone age lasted from whenever someone first
 thought of hooking an X-ray machine up to a computer up until the early
