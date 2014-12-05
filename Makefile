@@ -1,13 +1,13 @@
 deploy: render
 	./dist/build/tesser/tesser deploy
 
-render: build
+render: clean
 	./dist/build/tesser/tesser rebuild
 
-build:
-	cabal build
+clean: dist/build/tesser/tesser
+	./dist/build/tesser/tesser clean
 
-install:
-	cabal install
+dist/build/tesser/tesser: tesser.hs
+	cabal build
 
 .PHONY: deploy render build install
