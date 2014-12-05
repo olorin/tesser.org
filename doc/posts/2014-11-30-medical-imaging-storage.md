@@ -1,6 +1,6 @@
 ---
 title: Store and index your own medical imaging data 
-author: Sharif Olórin
+author: Sharif Olorin
 ---
 
 I broke my wrist (right distal radius) a couple of weeks ago. My doctor initially

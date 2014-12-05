@@ -1,6 +1,6 @@
 ---
 title: Notes on setting up a Hackage mirror
-author: Sharif Olórin
+author: Sharif Olorin
 ---
 
 ## Preparation
