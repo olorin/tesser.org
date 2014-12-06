@@ -7,7 +7,10 @@ author: Sharif Olorin
 
 You will need:
 
- - around 100GB diskspace;
+ - around 100GB diskspace (as of December 2014, the full mirror occupies
+   45GB plus operating system and applications; I rounded up an order
+   magnitude for future growth/error margin/disks aren't the expensive
+   bit here);
  - at least 4GB memory (you might be able to get away with less, but I
    wouldn't bet on it);
  - CPU time to burn (the initial sync from `hackage.haskell.org` took me
