@@ -16,11 +16,13 @@ You will need:
  - GHC 7.6.x (no, GHC 7.8.x [will not suffice](https://github.com/haskell/hackage-server/issues/260)).
 
 For reference, the machine I used was a 4-vCPU machine with 8GB RAM
-running Ubuntu 14.04. You can separate the mirror from the machine that
-does the builds, but I haven't found that to be necessary yet (assuming
-one is willing to wait a little longer for the initial sync). I used a
-single-purpose machine; it could be done on a multi-purpose server if it
-had CPU to burn.
+running Ubuntu 14.04. It would probably work unmodified on a recent
+Debian release, and as long as you have a semirecent Linux distribution
+you should only need to modify the dependency-installation bit. You can
+separate the mirror from the machine that does the builds, but I haven't 
+found that to be necessary yet (assuming one is willing to wait a little 
+longer for the initial sync). I used a single-purpose machine; it could be 
+done on a multi-purpose server if it had CPU to burn.
 
 ## Process
 
