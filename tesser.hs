@@ -27,6 +27,7 @@ main = hakyllWith cfg $ do
         route $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/post.html" postCtx
+            >>= saveSnapshot "post_content"
             >>= loadAndApplyTemplate "templates/main.html" postCtx
             >>= relativizeUrls
 
@@ -44,11 +45,20 @@ main = hakyllWith cfg $ do
                 >>= loadAndApplyTemplate "templates/main.html" indexCtx
                 >>= relativizeUrls
 
+    create ["rss.xml"] $ do
+        route idRoute
+        compile $ do
+            posts <- fmap (take 10) . recentFirst =<<
+                loadAllSnapshots "doc/posts/*" "post_content"
+            renderRss feedCfg feedCtx posts
+
     match "templates/*" $ compile templateCompiler
   where
     cfg = defaultConfiguration {
         deployCommand = "rsync -avz ./_site/ tesser@tesser.wired:~/tesser.org"
     }
+
+    feedCtx = postCtx `mappend` bodyField "description"
 
 postCtx :: Context String
 postCtx =
