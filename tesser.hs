@@ -45,12 +45,9 @@ main = hakyllWith cfg $ do
                 >>= loadAndApplyTemplate "templates/main.html" indexCtx
                 >>= relativizeUrls
 
-    create ["rss.xml"] $ do
-        route idRoute
-        compile $ do
-            posts <- fmap (take 10) . recentFirst =<<
-                loadAllSnapshots "doc/posts/*" "post_content"
-            renderRss feedCfg feedCtx posts
+    create ["rss.xml"] $ feedContent renderRss
+
+    create ["atom.xml"] $ feedContent renderAtom
 
     match "templates/*" $ compile templateCompiler
   where
@@ -59,6 +56,13 @@ main = hakyllWith cfg $ do
     }
 
     feedCtx = postCtx `mappend` bodyField "description"
+
+    feedContent renderFeed = do
+        route idRoute
+        compile $ do
+            posts <- fmap (take 10) . recentFirst =<<
+                loadAllSnapshots "doc/posts/*" "post_content"
+            renderFeed feedCfg feedCtx posts
 
 postCtx :: Context String
 postCtx =
