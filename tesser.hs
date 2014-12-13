@@ -54,3 +54,12 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" <>
     defaultContext
+
+feedCfg :: FeedConfiguration
+feedCfg = FeedConfiguration {
+      feedTitle = "tesser.org - posts"
+    , feedDescription = "posts on tesser.org"
+    , feedAuthorName = "Sharif Olorin"
+    , feedAuthorEmail = "sio@tesser.org"
+    , feedRoot = "https://tesser.org"
+}

@@ -10,4 +10,7 @@ clean: dist/build/tesser/tesser
 dist/build/tesser/tesser: tesser.hs
 	cabal build
 
+format: tesser.hs
+	stylish-haskell -i tesser.hs
+
 .PHONY: deploy render build install
