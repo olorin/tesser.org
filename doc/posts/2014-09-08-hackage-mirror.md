@@ -1,6 +1,7 @@
 ---
 title: Notes on setting up a Hackage mirror
 author: Sharif Olorin
+tags: haskell, linux
 ---
 
 ## Preparation
