@@ -5,6 +5,8 @@ import           Hakyll
 
 main :: IO ()
 main = hakyllWith cfg $ do
+    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
+
     match "img/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -55,7 +57,7 @@ main = hakyllWith cfg $ do
         deployCommand = "rsync -avz ./_site/ tesser@tesser.wired:~/tesser.org"
     }
 
-    feedCtx = postCtx `mappend` bodyField "description"
+    feedCtx = postCtx <> bodyField "description"
 
     feedContent renderFeed = do
         route idRoute
@@ -68,6 +70,10 @@ postCtx :: Context String
 postCtx =
     dateField "date" "%B %e, %Y" <>
     defaultContext
+
+tagsCtx :: Tags -> Context String
+tagsCtx tags =
+    tagsField "tags" tags <> postCtx
 
 feedCfg :: FeedConfiguration
 feedCfg = FeedConfiguration {
