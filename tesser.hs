@@ -11,6 +11,10 @@ main = hakyllWith cfg $ do
         route   idRoute
         compile copyFileCompiler
 
+    match "doc/posts/img/*" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match "var/*" $ do
         route idRoute
         compile copyFileCompiler
