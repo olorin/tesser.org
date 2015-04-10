@@ -10,8 +10,6 @@ title: Home
  - Mail me at [sio@tesser.org](mailto:sio@tesser.org).
    - I use [gnupg](http://www.gnupg.org/); feel free to send me mail
      encrypted with key ID [0x6B9FDF57](/var/sio.asc).
- - I often lurk on the [alpha-labs.net](https://alpha-labs.net) XMPP
-   server as `sio`.
 
 ## Miscellaneous
 
