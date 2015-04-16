@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import           Control.Monad
 import           Data.Monoid
 import           Hakyll
 
@@ -7,23 +8,17 @@ main :: IO ()
 main = hakyllWith cfg $ do
     tags <- buildTags "posts/*" (fromCapture "tags/*.html")
 
-    match "img/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "doc/posts/img/*" $ do
-        route   idRoute
-        compile copyFileCompiler
-
-    match "var/*" $ do
-        route idRoute
-        compile copyFileCompiler
+    mapM_ matchStatic [
+        "**/img/*"
+       ,"var/*"
+       ,"doc/slides/*/index.html"
+       ]
 
     match "css/*" $ do
         route   idRoute
         compile compressCssCompiler
 
-    match (fromList ["index.md"]) $ do
+    match (fromList ["index.md", "doc/slides/index.md"]) $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/main.html" defaultContext
@@ -69,6 +64,10 @@ main = hakyllWith cfg $ do
             posts <- fmap (take 10) . recentFirst =<<
                 loadAllSnapshots "doc/posts/*" "post_content"
             renderFeed feedCfg feedCtx posts
+
+    matchStatic = flip match copyStatic
+
+    copyStatic = route idRoute >> compile copyFileCompiler
 
 postCtx :: Context String
 postCtx =

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+<style>
+  html { background-color: black; }
+  body { background-color: black; border-radius: 12px}
+  /* A section is a slide. It's size is 800x600, and this will never change */
+  section {
+      font-family: Helvetica, sans-serif;
+      font-size: 20pt;
+      color: white;
+    }
+  address, blockquote, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, ol, p, pre, table, ul, dl { padding: 10px 20px 10px 20px; }
+  th, td { 
+    border: 2px solid white; 
+    padding: 15px;
+  }
+  pre {
+    font-size: 10pt;
+    font-weight: bold;
+  }
+  h1, h2, h3 {
+    text-align: center;
+    margin: 10pt 10pt 10pt 10pt;
+    color: white;
+    font-size: 20pt;
+  }
+  p { text-align: center; }
+  ul, ol {
+    margin: 10px 10px 10px 50px;
+    color: white;
+    vertical-align: middle;
+  }
+  li {
+    margin: 20px;
+  }
+  section.titleslide h1 { margin-top: 200px; }
+  h1.title { margin-top: 150px; }
+  h1 { font-size: 180%; }
+  h2 { font-size: 120%; }
+  h3 { font-size: 100%; }
+  q { quotes: "“" "”" "‘" "’"; }
+  blockquote { font-style: italic }
+  /* Figures are displayed full-page, with the caption on
+     top of the image/video */
+  figure {
+    background-color: black;
+  }
+  figcaption {
+    margin: 500px;
+    color: white;
+  }
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 40px;
+    text-align: right;
+    background-color: #F3F4F8;
+    border-top: 1px solid #CCC;
+  }
+
+  /* Transition effect */
+  /* Feel free to change the transition effect for original
+     animations. See here:
+     https://developer.mozilla.org/en/CSS/CSS_transitions
+     How to use CSS3 Transitions: */
+  section {
+      -moz-transition: left 400ms linear 0s;
+      -webkit-transition: left 400ms linear 0s;
+      -ms-transition: left 400ms linear 0s;
+      transition: left 400ms linear 0s;
+  }
+
+  /* Before */
+  section { left: -150%; }
+  /* Now */
+  section[aria-selected] { left: 0; }
+  /* After */
+  section[aria-selected] ~ section { left: +150%; }
+
+  /* Incremental elements */
+
+  /* By default, visible */
+  .incremental > * { opacity: 1; }
+
+  /* The current item */
+  .incremental > *[aria-selected] { color: red; opacity: 1; }
+
+  /* The items to-be-selected */
+  .incremental > *[aria-selected] ~ * { opacity: 0.2; }
+</style>
+</head>
+<body>
+<section class="slide level1">
+
+<figure>
+<img src="img/title.svg" />
+</figure>
+</section>
+<section id="theory" class="slide level1">
+<h1>Theory</h1>
+<figure>
+<img src="img/theory.svg" />
+</figure>
+</section>
+<section id="utility-billing" class="slide level1">
+<h1>Utility billing?</h1>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">r3.xlarge</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">30.5</td>
+<td style="text-align: left;">1 x 80 SSD</td>
+<td style="text-align: left;">$0.350 per Hour</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">r3.2xlarge</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">61</td>
+<td style="text-align: left;">1 x 160 SSD</td>
+<td style="text-align: left;">$0.700 per Hour</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">r3.4xlarge</td>
+<td style="text-align: center;">16</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: left;">122</td>
+<td style="text-align: left;">1 x 320 SSD</td>
+<td style="text-align: left;">$1.400 per Hour</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">r3.8xlarge</td>
+<td style="text-align: center;">32</td>
+<td style="text-align: right;">104</td>
+<td style="text-align: left;">244</td>
+<td style="text-align: left;">2 x 320 SSD</td>
+<td style="text-align: left;">$2.800 per Hour</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="disparities-and-arbitrage" class="slide level1">
+<h1>Disparities and arbitrage</h1>
+<figure>
+<img src="img/disparity.svg" />
+</figure>
+</section>
+<section id="aligning-incentives" class="slide level1">
+<h1>Aligning incentives</h1>
+<p>Disproportionate resource usage should lead to disproportionate cost.</p>
+<ul>
+<li>If it can be contended, track it.</li>
+<li>CPU time and disk IOPS are the resources affecting QoS for your customers.</li>
+<li>Store forever (disks are cheap, and capacity planning requires historical data).</li>
+<li>Granular from the start - customers like to know what they're paying for.</li>
+</ul>
+</section>
+<section id="granularity-with-borel" class="slide level1">
+<h1>Granularity with Borel</h1>
+<pre class="sourceCode json"><code class="sourceCode json"><span class="ot">[</span>
+    <span class="fu">{</span>
+        <span class="dt">&quot;customer-id&quot;</span><span class="fu">:</span> <span class="st">&quot;21891&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;quantity&quot;</span><span class="fu">:</span> <span class="dv">1500663808</span><span class="fu">,</span>
+        <span class="dt">&quot;resource&quot;</span><span class="fu">:</span> <span class="st">&quot;diskio-writes&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;resource_id&quot;</span><span class="fu">:</span> <span class="st">&quot;284a9f20-4d5e-4044-a955-f2fb9e00e66d&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;uom&quot;</span><span class="fu">:</span> <span class="st">&quot;B&quot;</span>
+    <span class="fu">}</span><span class="ot">,</span>
+    <span class="fu">{</span>
+        <span class="dt">&quot;customer-id&quot;</span><span class="fu">:</span> <span class="st">&quot;21891&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;quantity&quot;</span><span class="fu">:</span> <span class="dv">137476</span><span class="fu">,</span>
+        <span class="dt">&quot;resource&quot;</span><span class="fu">:</span> <span class="st">&quot;neutron-data-rx&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;resource_id&quot;</span><span class="fu">:</span> <span class="st">&quot;instance-00001050-284a9f20-4d5e-4044-a955-f2fb9e00e66d-tapd46c8be5-ac&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;uom&quot;</span><span class="fu">:</span> <span class="st">&quot;B&quot;</span>
+    <span class="fu">}</span><span class="ot">,</span>
+    <span class="fu">{</span>
+        <span class="dt">&quot;customer-id&quot;</span><span class="fu">:</span> <span class="st">&quot;21891&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;quantity&quot;</span><span class="fu">:</span> <span class="dv">516570000000</span><span class="fu">,</span>
+        <span class="dt">&quot;resource&quot;</span><span class="fu">:</span> <span class="st">&quot;cpu-usage&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;resource_id&quot;</span><span class="fu">:</span> <span class="st">&quot;284a9f20-4d5e-4044-a955-f2fb9e00e66d&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;uom&quot;</span><span class="fu">:</span> <span class="st">&quot;cpu-ns&quot;</span>
+    <span class="fu">}</span><span class="ot">,</span>
+    <span class="fu">{</span>
+        <span class="dt">&quot;customer-id&quot;</span><span class="fu">:</span> <span class="st">&quot;21891&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;quantity&quot;</span><span class="fu">:</span> <span class="dv">9942017556480000</span><span class="fu">,</span>
+        <span class="dt">&quot;resource&quot;</span><span class="fu">:</span> <span class="st">&quot;memory-allocation&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;resource_id&quot;</span><span class="fu">:</span> <span class="st">&quot;284a9f20-4d5e-4044-a955-f2fb9e00e66d&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;uom&quot;</span><span class="fu">:</span> <span class="st">&quot;MB-ns&quot;</span>
+    <span class="fu">}</span>
+<span class="ot">]</span></code></pre>
+</section>
+<section id="practice" class="slide level1">
+<h1>Practice</h1>
+<figure>
+<img src="img/reality-wtf.svg" />
+</figure>
+</section>
+<section id="fun-with-schemaless-message-formats" class="slide level1">
+<h1>Fun with schemaless message formats</h1>
+<!---
+These suck because
+
+ - there's no guarantee you'll get the data you're expecting
+ - especially when the docs are incomplete
+ - and doubly so when the docs which are present are sometimes wrong
+-->
+<pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+    <span class="dt">&quot;id&quot;</span><span class="fu">:</span> <span class="st">&quot;68d4a944-7222-11e4-b78a-525400f01ec9&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;image.size&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;project_id&quot;</span><span class="fu">:</span> <span class="st">&quot;229301dc166a4b5bbf234564c01aaaed&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;resource_id&quot;</span><span class="fu">:</span> <span class="st">&quot;87252d51-d050-4a16-a7f0-bbed90f8e9aa&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;resource_metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;checksum&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span>
+        <span class="dt">&quot;container_format&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span>
+        <span class="dt">&quot;created_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-09-18T05:54:57&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;deleted&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span>
+        <span class="dt">&quot;deleted_at&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span>
+        <span class="dt">&quot;disk_format&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span>
+        <span class="dt">&quot;is_public&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span>
+        <span class="dt">&quot;min_disk&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span>
+        <span class="dt">&quot;min_ram&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span>
+        <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;openstack-client-vm&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;properties&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="dt">&quot;bdm_v2&quot;</span><span class="fu">:</span> <span class="st">&quot;True&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;block_device_mapping&quot;</span><span class="fu">:</span> <span class="st">&quot;[{</span><span class="ch">\&quot;</span><span class="st">guest_format</span><span class="ch">\&quot;</span><span class="st">: null, </span><span class="ch">\&quot;</span><span class="st">boot_index</span><span class="ch">\&quot;</span><span class="st">: 0, </span><span class="ch">\&quot;</span><span class="st">no_device</span><span class="ch">\&quot;</span><span class="st">: null, [ ... ]&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;checksum&quot;</span><span class="fu">:</span> <span class="st">&quot;91f209e3423e45bdad3bc7f65b8eb0b8&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;container_format&quot;</span><span class="fu">:</span> <span class="st">&quot;bare&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;description&quot;</span><span class="fu">:</span> <span class="st">&quot;Official image from Canonical&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;disk_format&quot;</span><span class="fu">:</span> <span class="st">&quot;raw&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;image_id&quot;</span><span class="fu">:</span> <span class="st">&quot;c5f42541-0008-48aa-82a7-25dfc185b88b&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;image_name&quot;</span><span class="fu">:</span> <span class="st">&quot;Official-ubuntu-trusty&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;min_disk&quot;</span><span class="fu">:</span> <span class="st">&quot;0&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;min_ram&quot;</span><span class="fu">:</span> <span class="st">&quot;0&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;root_device_name&quot;</span><span class="fu">:</span> <span class="st">&quot;/dev/vda&quot;</span><span class="fu">,</span>
+            <span class="dt">&quot;size&quot;</span><span class="fu">:</span> <span class="st">&quot;2361393152&quot;</span>
+        <span class="fu">},</span>
+        <span class="dt">&quot;protected&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span>
+        <span class="dt">&quot;size&quot;</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span>
+        <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="st">&quot;active&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;updated_at&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-09-18T05:54:57&quot;</span>
+    <span class="fu">},</span>
+    <span class="dt">&quot;source&quot;</span><span class="fu">:</span> <span class="st">&quot;openstack&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;timestamp&quot;</span><span class="fu">:</span> <span class="st">&quot;2014-11-22T08:34:44Z&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;gauge&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;unit&quot;</span><span class="fu">:</span> <span class="st">&quot;B&quot;</span><span class="fu">,</span>
+    <span class="dt">&quot;user_id&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span>
+    <span class="dt">&quot;volume&quot;</span><span class="fu">:</span> <span class="dv">0</span>
+<span class="fu">}</span></code></pre>
+</section>
+<section id="problems" class="slide level1">
+<h1>Problems</h1>
+<h2 id="or-why-cant-i-just-use-an-rdbms">or, &quot;Why can't I just use an RDBMS?&quot;</h2>
+<ul>
+<li>That message on the last slide? 1.3kB.</li>
+<li>A few hundred of those per second.</li>
+<li>Millions of messages per hour, hundreds of gigabytes per month.</li>
+<li>Sure, you can write that to a MySQL cluster.</li>
+<li>But I wouldn't want to be your operations team.</li>
+</ul>
+<!---
+ - Can't throw away data for audit reasons.
+-->
+</section>
+<section id="but-but-nosql" class="slide level1">
+<h1>But, but, NoSQL!</h1>
+<figure>
+<img src="img/jepsen1.png" />
+</figure>
+<!---
+ - Inconsistent metering data leads to angry customers.
+-->
+</section>
+<section id="enter-vaultaire" class="slide level1">
+<h1>Enter Vaultaire</h1>
+<figure>
+<img src="img/vaultaire.svg" />
+</figure>
+</section>
+<section id="tapping-ceilometer" class="slide level1">
+<h1>Tapping Ceilometer</h1>
+<!---
+ > - Export from MySQL, Mongo et al.
+ > - Custom storage backend.
+ > - Custom dispatcher.
+ > - Custom publisher.
+-->
+<figure>
+<img src="img/hardpoints_original.svg" />
+</figure>
+</section>
+<section id="hardpoints" class="slide level1">
+<h1>Hardpoints</h1>
+<figure>
+<img src="img/hardpoints_dispatch.svg" />
+</figure>
+</section>
+<section id="publisher" class="slide level1">
+<h1>Publisher</h1>
+<figure>
+<img src="img/hardpoints_github.svg" />
+</figure>
+</section>
+<section id="events-are-awesome" class="slide level1">
+<h1>Events are awesome</h1>
+<ul>
+<li>Space-efficient.</li>
+<li>Very cheap to query.</li>
+<li>As of Juno, the only way to measure volumes and snapshots.</li>
+</ul>
+</section>
+<section id="most-of-the-time" class="slide level1">
+<h1>...most of the time</h1>
+<ul>
+<li>Messages get lost.</li>
+<li>Like the <code>volume.delete</code> your customer triggered on that 1TB SSD eight months ago.</li>
+<li>The best kinds of customers are the ones without pitchforks.</li>
+</ul>
+<!---
+# Guidelines for pitchfork avoidance
+
+ - Rely on pollsters wherever you can.
+-->
+</section>
+<section id="future" class="slide level1">
+<h1>Future</h1>
+<figure>
+<img src="img/gnocchi.svg" />
+</figure>
+</section>
+<section id="acknowledgements" class="slide level1">
+<h1>Acknowledgements</h1>
+<ul>
+<li>Barney, Katie, Oswyn and Tran for doing all the actual work;</li>
+<li>aphyr (<a href="http://aphyr.com" class="uri">http://aphyr.com</a>), for evaluating MongoDB via image macros so we don't have to;</li>
+<li>and assorted dead French intellectuals for their invaluable assistance in one of computer science's two hardest problems (unfortunately not cache invalidation or off-by-one errors).</li>
+</ul>
+</section>
+<!-- {{{{ dzslides core
+#
+#
+#     __  __  __       .  __   ___  __
+#    |  \  / /__` |    | |  \ |__  /__`
+#    |__/ /_ .__/ |___ | |__/ |___ .__/ core :€
+#
+#
+# The following block of code is not supposed to be edited.
+# But if you want to change the behavior of these slides,
+# feel free to hack it!
+#
+-->
+
+<div id="progress-bar"></div>
+
+<!-- Default Style -->
+<style>
+  * { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+  details { display: none; }
+  body {
+    width: 800px; height: 600px;
+    margin-left: -400px; margin-top: -300px;
+    position: absolute; top: 50%; left: 50%;
+    overflow: hidden;
+  }
+  section {
+    position: absolute;
+    pointer-events: none;
+    width: 100%; height: 100%;
+  }
+  section[aria-selected] { pointer-events: auto; }
+  html { overflow: hidden; }
+  body { display: none; }
+  body.loaded { display: block; }
+  .incremental {visibility: hidden; }
+  .incremental[active] {visibility: visible; }
+  #progress-bar{
+    bottom: 0;
+    position: absolute;
+    -moz-transition: width 400ms linear 0s;
+    -webkit-transition: width 400ms linear 0s;
+    -ms-transition: width 400ms linear 0s;
+    transition: width 400ms linear 0s;
+  }
+  figure {
+    width: 100%;
+    height: 100%;
+  }
+  figure > * {
+    position: absolute;
+  }
+  figure > img, figure > video {
+    width: 100%; height: 100%;
+  }
+</style>
+
+<script>
+  var Dz = {
+    remoteWindows: [],
+    idx: -1,
+    step: 0,
+    slides: null,
+    progressBar : null,
+    params: {
+      autoplay: "1"
+    }
+  };
+
+  Dz.init = function() {
+    document.body.className = "loaded";
+    this.slides = $$("body > section");
+    this.progressBar = $("#progress-bar");
+    this.setupParams();
+    this.onhashchange();
+    this.setupTouchEvents();
+    this.onresize();
+  }
+  
+  Dz.setupParams = function() {
+    var p = window.location.search.substr(1).split('&');
+    p.forEach(function(e, i, a) {
+      var keyVal = e.split('=');
+      Dz.params[keyVal[0]] = decodeURIComponent(keyVal[1]);
+    });
+  // Specific params handling
+    if (!+this.params.autoplay)
+      $$.forEach($$("video"), function(v){ v.controls = true });
+  }
+
+  Dz.onkeydown = function(aEvent) {
+    // Don't intercept keyboard shortcuts
+    if (aEvent.altKey
+      || aEvent.ctrlKey
+      || aEvent.metaKey
+      || aEvent.shiftKey) {
+      return;
+    }
+    if ( aEvent.keyCode == 37 // left arrow
+      || aEvent.keyCode == 38 // up arrow
+      || aEvent.keyCode == 33 // page up
+    ) {
+      aEvent.preventDefault();
+      this.back();
+    }
+    if ( aEvent.keyCode == 39 // right arrow
+      || aEvent.keyCode == 40 // down arrow
+      || aEvent.keyCode == 34 // page down
+    ) {
+      aEvent.preventDefault();
+      this.forward();
+    }
+    if (aEvent.keyCode == 35) { // end
+      aEvent.preventDefault();
+      this.goEnd();
+    }
+    if (aEvent.keyCode == 36) { // home
+      aEvent.preventDefault();
+      this.goStart();
+    }
+    if (aEvent.keyCode == 32) { // space
+      aEvent.preventDefault();
+      this.toggleContent();
+    }
+    if (aEvent.keyCode == 70) { // f
+      aEvent.preventDefault();
+      this.goFullscreen();
+    }
+  }
+
+  /* Touch Events */
+
+  Dz.setupTouchEvents = function() {
+    var orgX, newX;
+    var tracking = false;
+
+    var db = document.body;
+    db.addEventListener("touchstart", start.bind(this), false);
+    db.addEventListener("touchmove", move.bind(this), false);
+
+    function start(aEvent) {
+      aEvent.preventDefault();
+      tracking = true;
+      orgX = aEvent.changedTouches[0].pageX;
+    }
+
+    function move(aEvent) {
+      if (!tracking) return;
+      newX = aEvent.changedTouches[0].pageX;
+      if (orgX - newX > 100) {
+        tracking = false;
+        this.forward();
+      } else {
+        if (orgX - newX < -100) {
+          tracking = false;
+          this.back();
+        }
+      }
+    }
+  }
+
+  /* Adapt the size of the slides to the window */
+
+  Dz.onresize = function() {
+    var db = document.body;
+    var sx = db.clientWidth / window.innerWidth;
+    var sy = db.clientHeight / window.innerHeight;
+    var transform = "scale(" + (1/Math.max(sx, sy)) + ")";
+
+    db.style.MozTransform = transform;
+    db.style.WebkitTransform = transform;
+    db.style.OTransform = transform;
+    db.style.msTransform = transform;
+    db.style.transform = transform;
+  }
+
+
+  Dz.getDetails = function(aIdx) {
+    var s = $("section:nth-of-type(" + aIdx + ")");
+    var d = s.$("details");
+    return d ? d.innerHTML : "";
+  }
+
+  Dz.onmessage = function(aEvent) {
+    var argv = aEvent.data.split(" "), argc = argv.length;
+    argv.forEach(function(e, i, a) { a[i] = decodeURIComponent(e) });
+    var win = aEvent.source;
+    if (argv[0] === "REGISTER" && argc === 1) {
+      this.remoteWindows.push(win);
+      this.postMsg(win, "REGISTERED", document.title, this.slides.length);
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+      return;
+    }
+    if (argv[0] === "BACK" && argc === 1)
+      this.back();
+    if (argv[0] === "FORWARD" && argc === 1)
+      this.forward();
+    if (argv[0] === "START" && argc === 1)
+      this.goStart();
+    if (argv[0] === "END" && argc === 1)
+      this.goEnd();
+    if (argv[0] === "TOGGLE_CONTENT" && argc === 1)
+      this.toggleContent();
+    if (argv[0] === "SET_CURSOR" && argc === 2)
+      window.location.hash = "#" + argv[1];
+    if (argv[0] === "GET_CURSOR" && argc === 1)
+      this.postMsg(win, "CURSOR", this.idx + "." + this.step);
+    if (argv[0] === "GET_NOTES" && argc === 1)
+      this.postMsg(win, "NOTES", this.getDetails(this.idx));
+  }
+
+  Dz.toggleContent = function() {
+    // If a Video is present in this new slide, play it.
+    // If a Video is present in the previous slide, stop it.
+    var s = $("section[aria-selected]");
+    if (s) {
+      var video = s.$("video");
+      if (video) {
+        if (video.ended || video.paused) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+    }
+  }
+
+  Dz.setCursor = function(aIdx, aStep) {
+    // If the user change the slide number in the URL bar, jump
+    // to this slide.
+    aStep = (aStep != 0 && typeof aStep !== "undefined") ? "." + aStep : ".0";
+    window.location.hash = "#" + aIdx + aStep;
+  }
+
+  Dz.onhashchange = function() {
+    var cursor = window.location.hash.split("#"),
+        newidx = 1,
+        newstep = 0;
+    if (cursor.length == 2) {
+      newidx = ~~cursor[1].split(".")[0];
+      newstep = ~~cursor[1].split(".")[1];
+      if (newstep > Dz.slides[newidx - 1].$$('.incremental > *').length) {
+        newstep = 0;
+        newidx++;
+      }
+    }
+    this.setProgress(newidx, newstep);
+    if (newidx != this.idx) {
+      this.setSlide(newidx);
+    }
+    if (newstep != this.step) {
+      this.setIncremental(newstep);
+    }
+    for (var i = 0; i < this.remoteWindows.length; i++) {
+      this.postMsg(this.remoteWindows[i], "CURSOR", this.idx + "." + this.step);
+    }
+  }
+
+  Dz.back = function() {
+    if (this.idx == 1 && this.step == 0) {
+      return;
+    }
+    if (this.step == 0) {
+      this.setCursor(this.idx - 1,
+                     this.slides[this.idx - 2].$$('.incremental > *').length);
+    } else {
+      this.setCursor(this.idx, this.step - 1);
+    }
+  }
+
+  Dz.forward = function() {
+    if (this.idx >= this.slides.length &&
+        this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+        return;
+    }
+    if (this.step >= this.slides[this.idx - 1].$$('.incremental > *').length) {
+      this.setCursor(this.idx + 1, 0);
+    } else {
+      this.setCursor(this.idx, this.step + 1);
+    }
+  }
+
+  Dz.goStart = function() {
+    this.setCursor(1, 0);
+  }
+
+  Dz.goEnd = function() {
+    var lastIdx = this.slides.length;
+    var lastStep = this.slides[lastIdx - 1].$$('.incremental > *').length;
+    this.setCursor(lastIdx, lastStep);
+  }
+
+  Dz.setSlide = function(aIdx) {
+    this.idx = aIdx;
+    var old = $("section[aria-selected]");
+    var next = $("section:nth-of-type("+ this.idx +")");
+    if (old) {
+      old.removeAttribute("aria-selected");
+      var video = old.$("video");
+      if (video) {
+        video.pause();
+      }
+    }
+    if (next) {
+      next.setAttribute("aria-selected", "true");
+      var video = next.$("video");
+      if (video && !!+this.params.autoplay) {
+        video.play();
+      }
+    } else {
+      // That should not happen
+      this.idx = -1;
+      // console.warn("Slide doesn't exist.");
+    }
+  }
+
+  Dz.setIncremental = function(aStep) {
+    this.step = aStep;
+    var old = this.slides[this.idx - 1].$('.incremental > *[aria-selected]');
+    if (old) {
+      old.removeAttribute('aria-selected');
+    }
+    var incrementals = $$('.incremental');
+    if (this.step <= 0) {
+      $$.forEach(incrementals, function(aNode) {
+        aNode.removeAttribute('active');
+      });
+      return;
+    }
+    var next = this.slides[this.idx - 1].$$('.incremental > *')[this.step - 1];
+    if (next) {
+      next.setAttribute('aria-selected', true);
+      next.parentNode.setAttribute('active', true);
+      var found = false;
+      $$.forEach(incrementals, function(aNode) {
+        if (aNode != next.parentNode)
+          if (found)
+            aNode.removeAttribute('active');
+          else
+            aNode.setAttribute('active', true);
+        else
+          found = true;
+      });
+    } else {
+      setCursor(this.idx, 0);
+    }
+    return next;
+  }
+
+  Dz.goFullscreen = function() {
+    var html = $('html'),
+        requestFullscreen = html.requestFullscreen || html.requestFullScreen || html.mozRequestFullScreen || html.webkitRequestFullScreen;
+    if (requestFullscreen) {
+      requestFullscreen.apply(html);
+    }
+  }
+  
+  Dz.setProgress = function(aIdx, aStep) {
+    var slide = $("section:nth-of-type("+ aIdx +")");
+    if (!slide)
+      return;
+    var steps = slide.$$('.incremental > *').length + 1,
+        slideSize = 100 / (this.slides.length - 1),
+        stepSize = slideSize / steps;
+    this.progressBar.style.width = ((aIdx - 1) * slideSize + aStep * stepSize) + '%';
+  }
+  
+  Dz.postMsg = function(aWin, aMsg) { // [arg0, [arg1...]]
+    aMsg = [aMsg];
+    for (var i = 2; i < arguments.length; i++)
+      aMsg.push(encodeURIComponent(arguments[i]));
+    aWin.postMessage(aMsg.join(" "), "*");
+  }
+  
+  function init() {
+    Dz.init();
+    window.onkeydown = Dz.onkeydown.bind(Dz);
+    window.onresize = Dz.onresize.bind(Dz);
+    window.onhashchange = Dz.onhashchange.bind(Dz);
+    window.onmessage = Dz.onmessage.bind(Dz);
+  }
+
+  window.onload = init;
+</script>
+
+
+<script> // Helpers
+  if (!Function.prototype.bind) {
+    Function.prototype.bind = function (oThis) {
+
+      // closest thing possible to the ECMAScript 5 internal IsCallable
+      // function 
+      if (typeof this !== "function")
+      throw new TypeError(
+        "Function.prototype.bind - what is trying to be fBound is not callable"
+      );
+
+      var aArgs = Array.prototype.slice.call(arguments, 1),
+          fToBind = this,
+          fNOP = function () {},
+          fBound = function () {
+            return fToBind.apply( this instanceof fNOP ? this : oThis || window,
+                   aArgs.concat(Array.prototype.slice.call(arguments)));
+          };
+
+      fNOP.prototype = this.prototype;
+      fBound.prototype = new fNOP();
+
+      return fBound;
+    };
+  }
+
+  var $ = (HTMLElement.prototype.$ = function(aQuery) {
+    return this.querySelector(aQuery);
+  }).bind(document);
+
+  var $$ = (HTMLElement.prototype.$$ = function(aQuery) {
+    return this.querySelectorAll(aQuery);
+  }).bind(document);
+
+  $$.forEach = function(nodeList, fun) {
+    Array.prototype.forEach.call(nodeList, fun);
+  }
+
+</script>
+<!-- vim: set fdm=marker: }}} -->
+</body>
+</html>
