@@ -32,8 +32,8 @@ main = hakyllWith cfg $ do
             >>= loadAndApplyTemplate "templates/main.html" postCtx
             >>= relativizeUrls
 
-    create ["doc/index.html"] $ do
-        route idRoute
+    match "doc/index.html" $ do
+        route $ idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "doc/posts/*"
             let indexCtx =
