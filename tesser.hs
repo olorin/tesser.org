@@ -12,6 +12,7 @@ main = hakyllWith cfg $ do
         "**/img/*"
        ,"var/*"
        ,"doc/slides/*/index.html"
+       ,"**/*.pdf"
        ]
 
     match "css/*" $ do

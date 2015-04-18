@@ -5,6 +5,9 @@ author: Sharif Olorin
 
 # Slides for some talks I've given.
 
+ - *DIY Electrophysiography* - Makers' Place Leichhardt, 2015-04-18.
+   ([PDF](2015-04-18-makers-place-leichhardt-diy-electrophysiography.pdf),
+   [source](https://github.com/fractalcat/presentations/tree/master/2015-04-18-makers-place-leichhardt-diy-electrophysiography))
  - *Evidence-based Operations: a Quantitative Approach to Systems
    Architecture* - Sydney Area Workshop on Data Science and Programming
    Languages, 2014-12-10.
