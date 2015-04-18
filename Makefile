@@ -1,8 +1,8 @@
-deploy: render
-	./dist/build/tesser/tesser deploy
-
 render: clean
 	./dist/build/tesser/tesser rebuild
+
+deploy: render
+	./dist/build/tesser/tesser deploy
 
 clean: dist/build/tesser/tesser
 	./dist/build/tesser/tesser clean
