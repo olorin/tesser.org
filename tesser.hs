@@ -6,7 +6,8 @@ import           Hakyll
 
 main :: IO ()
 main = hakyllWith cfg $ do
-    tags <- buildTags "posts/*" (fromCapture "tags/*.html")
+    tags <- buildTags "doc/posts/*" (fromCapture "tags/*.html")
+    tagsRules tags renderTagPage
 
     mapM_ matchStatic [
         "**/img/*"
@@ -28,13 +29,13 @@ main = hakyllWith cfg $ do
     match "doc/posts/*" $ do
         route $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/post.html" postCtx
+            >>= loadAndApplyTemplate "templates/post.html" (tagsCtx tags)
             >>= saveSnapshot "post_content"
-            >>= loadAndApplyTemplate "templates/main.html" postCtx
+            >>= loadAndApplyTemplate "templates/main.html" (tagsCtx tags)
             >>= relativizeUrls
 
     match "doc/index.html" $ do
-        route $ idRoute
+        route idRoute
         compile $ do
             posts <- recentFirst =<< loadAll "doc/posts/*"
             let indexCtx =
@@ -69,6 +70,19 @@ main = hakyllWith cfg $ do
     matchStatic = flip match copyStatic
 
     copyStatic = route idRoute >> compile copyFileCompiler
+
+renderTagPage :: String -> Pattern -> Rules ()
+renderTagPage tag pattern = do
+    let title = "Pages tagged \"" <> tag <> "\""
+    route idRoute
+    compile $ do
+        docs <- loadAll pattern >>= recentFirst
+        let ctx =    constField "title" title
+                  <> listField "pages" postCtx (return docs)
+                  <> defaultContext
+        makeItem "" >>= loadAndApplyTemplate "templates/tag.html" ctx
+                    >>= loadAndApplyTemplate "templates/main.html" ctx
+                    >>= relativizeUrls
 
 postCtx :: Context String
 postCtx =
