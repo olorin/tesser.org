@@ -35,11 +35,13 @@ CCARGS=$(echo "$@" | sed -e 's/-lgmp//g')
 # might be different on other systems.
 STATIC_GMP="/usr/lib64/libgmp.a"
 
+# Note that the order is important, $STATIC_GMP needs to be after the
+# Haskell libraries in the ld invocation.
 gcc $CCARGS $STATIC_GMP
 ```
 
 Call that something like `link-with-gmp.sh` and save it somewhere in
-your `$PATH`, add `-pgml link-with.gmp.sh` to the `ghc-options`
+your `$PATH`, add `-pgml link-with-gmp.sh` to the `ghc-options`
 section in your Cabal file and build.
 
 Keep in mind that this won't work if you're building on a system with
