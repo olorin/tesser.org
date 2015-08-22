@@ -7,7 +7,7 @@ tags: openbci, eeg
 I've been playing around with the eight-channel
 [OpenBCI](http://openbci.com/) 32-bit EEG board and I'm quite
 pleased with it - it's flexible, hackable and even fairly portable. The
-few[^third-gripe] minor gripes I had proved to be quite easy to work around.
+few[^gripe] minor gripes I had proved to be quite easy to work around.
 
 The board needs a 6v DC power supply, provided by the included AA
 battery pack. It works fine (one set of batteries will probably last
@@ -33,7 +33,7 @@ header back on.
 
 ![same power supply, much easier to swap out](img/openbci-final.png)
 
-[^third-gripe]: The third is that the Processing GUI doesn't have an option for a 50Hz notch filter rather than a 60Hz one (for Americans, 50Hz is the AC frequency most of the rest of the world uses). I'll submit a fix for this when I next have some time to play around with the board.
+[^gripe]: For example, the Processing GUI doesn't have an option for a 50Hz notch filter rather than a 60Hz one (for Americans, 50Hz is the AC frequency most of the rest of the world uses). I'll submit a fix for this when I next have some time to play around with the board.
 
 [^power-connector]: The 'correct' part isn't actually documented anywhere I can find, but as far as I can tell they're [JST MCP-X](http://www.micronwings.com/Products/JSTMCP-XConnectors/index.shtml) connectors.
 
