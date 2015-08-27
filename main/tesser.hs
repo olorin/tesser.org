@@ -1,7 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import           Control.Monad
+
 import           Data.Monoid
+
 import           Hakyll
 
 main :: IO ()
@@ -55,7 +57,7 @@ main = hakyllWith cfg $ do
     match "templates/*" $ compile templateCompiler
   where
     cfg = defaultConfiguration {
-        deployCommand = "rsync -avz ./_site/ tesser@tesser.wired:~/tesser.org"
+        deployCommand = "rsync -avz ./_site/ tesser@tesser.www:~/tesser.org"
     }
 
     feedCtx = postCtx <> bodyField "description"
