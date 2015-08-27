@@ -6,7 +6,8 @@ author: Sharif Olorin
 # Slides (and source code where applicable)
 
  - *Online approximation of quantiles: a case study in Haskell* -
-   fp-syd, 2015-08-26. ([PDF](2015-08-26-fp-syd-approx-quantiles.pdf))
+   fp-syd, 2015-08-26. ([PDF](2015-08-26-fp-syd-approx-quantiles.pdf),
+   [source](https://github.com/olorin/slides/tree/master/2015-08-26-fp-syd-approx-quantiles))
  - *DIY Electrophysiography* - Makers' Place Leichhardt, 2015-04-18.
    ([PDF](2015-04-18-makers-place-leichhardt-diy-electrophysiography.pdf),
    [source](https://github.com/fractalcat/slides/tree/master/2015-04-18-makers-place-leichhardt-diy-electrophysiography))
