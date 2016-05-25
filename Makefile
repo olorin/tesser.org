@@ -7,7 +7,7 @@ deploy: render
 clean: dist/build/tesser/tesser
 	./dist/build/tesser/tesser clean
 
-dist/build/tesser/tesser: tesser.hs
+dist/build/tesser/tesser: main/tesser.hs
 	cabal build
 
 format: tesser.hs
