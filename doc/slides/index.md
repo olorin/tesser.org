@@ -5,6 +5,8 @@ author: Sharif Olorin
 
 # Slides (and source code where applicable)
 
+ - *Herbie: or, what to do if you can't stop worrying and hate floating point* -
+   fp-syd, 2016-05-25. ([PDF](2016-05-25-fp-syd-herbie.pdf))
  - *Online approximation of quantiles: a case study in Haskell* -
    fp-syd, 2015-08-26. ([PDF](2015-08-26-fp-syd-approx-quantiles.pdf),
    [source](https://github.com/olorin/slides/tree/master/2015-08-26-fp-syd-approx-quantiles))
